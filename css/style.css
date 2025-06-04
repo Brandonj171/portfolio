@@ -16,30 +16,17 @@ body {
   z-index: 999;
   padding: 1rem 2rem;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
   gap: 2rem;
   backdrop-filter: blur(10px); /* optional for visual polish */
 }
-.nav-links {
-  display: flex;
-  gap: 2rem;
-}
-#nav-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-.nav-links a {
+nav a {
   color: white;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s;
 }
-.nav-links a:hover {
+nav a:hover {
   color: #00ffff;
 }
 
@@ -144,25 +131,9 @@ h2 {
 
 /* Responsive */
 @media (max-width: 768px) {
-  #main-nav {
+  nav {
     flex-direction: column;
-    align-items: flex-start;
-    position: relative;
-  }
-  #nav-toggle {
-    display: block;
-  }
-  .nav-links {
-    flex-direction: column;
-    width: 100%;
-    background: rgba(49, 48, 48, 0.95);
-    position: absolute;
-    top: 100%;
-    left: 0;
-    display: none;
-  }
-  #main-nav.open .nav-links {
-    display: flex;
+    gap: 1rem;
   }
 
   .home-content h1 {
@@ -427,19 +398,46 @@ h2 {
   color: black;
 }
 
-@media all and (max-width: 500px) {
+@media all and (max-width: 768px) {
   .cards-list {
     flex-direction: column;
     align-items: center;
+    gap: 2rem;
   }
 
   .card {
-    width: 90%;
+    width: 100%;
+    max-width: 500px;
     height: auto;
+    perspective: none;
   }
 
-  .card_face.front img {
+  .card_image {
     height: auto;
+    transform-style: flat; /* disables 3D flip safely */
+  }
+
+  .card:hover .card_image {
+    transform: none;
+  }
+
+  .card_face {
+    position: relative;
+    transform: none;
+    backface-visibility: visible;
+    display: block;
+  }
+
+  .card_face.back {
+    transform: none;
+    position: relative;
+    display: block;
+    padding: 1rem;
+    text-align: center;
+    background-color: #111;
+    color: white;
+    border-radius: 20px;
+    margin-top: 1rem;
   }
 }
 #particles-background {
@@ -514,5 +512,6 @@ h2 {
 }
 h3 {
     font-family: 'Montserrat';
+    letter-spacing: 2px;
     color: rgba(255, 255, 255, 0.868);
 }
