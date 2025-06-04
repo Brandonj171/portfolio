@@ -159,3 +159,8 @@ particlesJS("particles-background", {
   },
   retina_detect: true
 });
+
+// Mobile navigation toggle
+document.getElementById('nav-toggle').addEventListener('click', function () {
+  document.getElementById('main-nav').classList.toggle('open');
+});
