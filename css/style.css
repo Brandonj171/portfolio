@@ -618,3 +618,9 @@ h3 {
     width: 10%;
   }
 }
+.aboutMe-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
