@@ -621,6 +621,7 @@ h3 {
 .aboutMe-container {
   display: flex;
   justify-content: center;
+  gap: 20px;
   margin-top: 20px;
-  margin-bottom: 40px;
+  flex-wrap: wrap;
 }
